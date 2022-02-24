@@ -25,4 +25,17 @@ echo "no.of tail is:" $tail_count
 	elif(($head_count==21 && $tail_count==21))
 	then
 		echo "match tie"
+		while(( $(($head_count-$tail_count))==2 ||  $(($tail_count-$head_count))==2))
+		do
+		coin=$((RANDOM%2))
+                	if(($coin==0))
+                	then
+                        	echo "it is head"
+                        	((head_count++))
+                	elif(($coin==1))
+                	then
+                        	echo "it is tail"
+                        	((tail_count++))
+                	fi
+        	done
 	fi
